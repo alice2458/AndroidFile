@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             if (cbSave.isChecked()) {
                 Log.i(TAG, "需要保存用户名和密码");
-                boolean result = LoginService.saveUserInfo(user, pass);
+                boolean result = LoginService.saveUserInfo(this, user, pass);
                 if (result) {
                     Toast.makeText(this,
                             "保存用户信息成功...", Toast.LENGTH_SHORT).show();
