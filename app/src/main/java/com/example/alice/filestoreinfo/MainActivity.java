@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.alice.service.LoginService;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -24,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
         etUser = findViewById(R.id.etUser);
         etPass = findViewById(R.id.etPass);
         cbSave = findViewById(R.id.cbSave);
+    }
+    private void showInfo(){
+        Map<String, String> map = LoginService.getSaveUserInfo(this);
+        if (map != null){
+            etUser.setText(map.get("username"));
+            etPass.setText(map.get("password"));
+        }
     }
     public void loginClick(View view) {
         String user = etUser.getText().toString().trim();
